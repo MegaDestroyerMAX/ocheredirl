@@ -124,24 +124,44 @@
         let tableBody = $('#queue-table body');
         tableBody.empty();
 
+        {{--queues.forEach(queue => {--}}
+        {{--    tableBody.append(`--}}
+        {{--        <ul class="col-6">--}}
+        {{--        <li>Талон:{{ $queue->number }}</li>--}}
+        {{--        <li>Статус: <span>{{ $queue->status }}</span></li>--}}
+        {{--        </ul>--}}
+        {{--    `);--}}
+        {{--});--}}
         queues.forEach(queue => {
             tableBody.append(`
                 <ul class="col-6">
-                <li>Талон:{{ $queue->number }}</li>
-                <li>Статус: <span>{{ $queue->status }}</span></li>
+                    <li>Талон: ${queue.number}</li>
+                    <li>Статус: <span>${queue.status}</span></li>
                 </ul>
             `);
         });
     }
 
     function updateDailyQueueTable(dailyQueues) {
+//         let tableBody = $('#daily-queue-table tbody');
+//         tableBody.empty();
+//
+//         dailyQueues.forEach(dailyQueue => {
+//             tableBody.append(`
+//
+// `);
+//         });
         let tableBody = $('#daily-queue-table tbody');
         tableBody.empty();
 
         dailyQueues.forEach(dailyQueue => {
             tableBody.append(`
-
-`);
+                <tr>
+                    <td>${dailyQueue.number}</td>
+                    <td>${dailyQueue.phone}</td>
+                    <td>${dailyQueue.date}</td>
+                </tr>
+            `);
         });
     }
 </script>

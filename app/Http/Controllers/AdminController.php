@@ -9,6 +9,11 @@ use App\Events\QueueUpdated;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // Закрываем доступ к админке для неавторизованных пользователей
+    }
+
     public function index()
     {
         $queues = Queue::all();

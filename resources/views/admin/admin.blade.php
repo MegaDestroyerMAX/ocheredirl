@@ -9,6 +9,16 @@
 </head>
 <body>
 <div class="container mt-5">
+    @if(Auth::check())
+        <p>Привет, {{ Auth::user()->name }}! <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a></p>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    @else
+        <a href="{{ route('login') }}">Войти</a>
+    @endif
     <h1>Admin Panel</h1>
 
     @if(session('success'))

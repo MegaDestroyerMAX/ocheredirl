@@ -32,12 +32,11 @@ class QueueUpdated implements ShouldBroadcastNow
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return Channel
      */
-    public function broadcastOn(): array
+    public function broadcastOn(): Channel
     {
-        return [
-            new Channel('queue-updates')
-        ];
+        return new Channel('queue-updates');
+
     }
 }
